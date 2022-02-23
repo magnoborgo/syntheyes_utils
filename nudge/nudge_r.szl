@@ -1,0 +1,13 @@
+//SIZZLET mb Nudge a Lot Right
+
+cam = Scene.activeObj.cam
+shot = cam.shot
+h = shot.width
+pixelnudge = 5
+increment = (2 * pixelnudge/h) // 2 * nudge in pixels / width
+
+tk = Scene.selected
+if (typeof(tk) == "SynTrk")
+    tk.u += increment
+    tk.key = tk.uv
+end
