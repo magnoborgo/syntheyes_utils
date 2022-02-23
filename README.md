@@ -5,11 +5,15 @@ Syntheyes Utils is a collection of scripts (sizzle/python) that I developed to i
 #### Installation:
 Most of the time... just drop scripts inside your user script folder. (Syntheyes Menu > Script > User script folder)
 
+#### Coder for Hire
+
+If you want scripts for Syntheyes I would love to help (Python/Sizzle automations)
 
 
-#### Support Developer Team
+#### Support the Developer
 
-If you want to thank or sponsor the project: [Paypal](https://www.paypal.com/paypalme/MBORGO)<br>
+If you want to thank or sponsor the project:<br>
+[Paypal](https://www.paypal.com/paypalme/MBORGO)<br>
 ```
 btc 3D1AFabS93fYeyH2NDjzo37GSRhd9DVfWa
 ltc LTT8Gj8nnwBCEGAcapjfLy9EyZtiu6Ntqh
