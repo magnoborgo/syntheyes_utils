@@ -1,0 +1,12 @@
+//SIZZLET Tracker - Paste into Lock Position
+
+ob = Scene.activeObj
+trk = ob.trk
+
+for (tk in trk)
+    if (tk.isSel)
+    tk.lockCoord = Global.trckLock
+    end
+end
+
+
