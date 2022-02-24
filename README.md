@@ -1,20 +1,29 @@
-## Syntheyes Utils
+## Nudge a Lot
 
-Syntheyes Utils is a collection of scripts (sizzle/python) that I developed to improve my day to day matchmoving using Syntheyes.
+Enable keyboard shortcuts to Nudge a lot. You can move your Tracker into 5 pixel increments.
+You can also increase/decrease Tracker search area with bigger increments.
+If you want to use other increment sizes, edit "pixelnudge" variable on each script.
+
+Nudge to Last Frame Position Script (SHIFT+NUM7), will copy the last frame search box position.
 
 #### Installation:
-Most of the time... just drop scripts inside your user script folder. (Syntheyes Menu > Script > User script folder)
+Paste this script folder into you User script folder.
 
-#### Coder for Hire
+Add the following lines to your keybd14.ini file (or can add whatever shortcuts on the UI you want):
 
-If you want scripts for Syntheyes I would love to help (Python/Sizzle automations)
+keybd14.ini location:
 
+C:\Documents and Settings\YourNameHere\Application Data\SynthEyes\keybd14.ini (Windows)<br>
+/Users/YourNameHere/Library/Application Support/SynthEyes/keybd14.ini (Mac OSX) <br>
+~/.SynthEyes/keybd14.ini (Linux)<br>
 
-#### Support the Developer
-
-If you want to thank or sponsor the project:<br>
-[Paypal](https://www.paypal.com/paypalme/MBORGO)<br>
+add these below on the end of the keybd14.ini file (these are SHIFT+ the usual movement keys on the numeric keyboard)
 ```
-btc 3D1AFabS93fYeyH2NDjzo37GSRhd9DVfWa
-ltc LTT8Gj8nnwBCEGAcapjfLy9EyZtiu6Ntqh
+   1 Numericpad4 mb Nudge a Lot Left Script
+   1 Numericpad6 mb Nudge a Lot Right Script
+   1 Numericpad8 mb Nudge a Lot Up Script
+   1 Numericpad2 mb Nudge a Lot Down Script
+   1 Numericpad9 mb Nudge a Lot Tracker Size Up Script
+   1 Numericpad3 mb Nudge a Lot Tracker Size Down Script   
+   1 Numericpad7 mb Nudge to Last Frame Position Script
 ```
