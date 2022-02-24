@@ -1,0 +1,17 @@
+//SIZZLET mb Nudge to Last Frame Position
+//by Magno Borgo 2022
+
+if (frame > Scene.startFrame) // lets not run before frame 0
+    frame-=1
+    Scene.SetFrame(frame)
+
+    tk = Scene.selected
+    if (typeof(tk) == "SynTrk")
+        previous_uv = tk.uv
+
+    frame+=1
+    Scene.SetFrame(frame)
+    tk.uv = previous_uv
+    tk.key = previous_uv
+    end
+end
