@@ -1,0 +1,13 @@
+//SIZZLET mb Nudge Key and Key Smooth Down
+//by Magno Borgo 2022
+
+tk = Scene.selected
+if (typeof(tk) == "SynTrk")
+    if (tk.autokey == 0)
+        tk.autokey = 10
+        tk.smooth = 5
+    else
+        tk.autokey /= 2
+        tk.smooth = tk.autokey /2
+    end
+end

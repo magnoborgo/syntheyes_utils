@@ -4,6 +4,10 @@ Enable keyboard shortcuts to Nudge a lot. You can move your Tracker into 5 pixel
 You can also increase/decrease Tracker search area with bigger increments.
 If you want to use other increment sizes, edit "pixelnudge" variable on each script.
 
+Nudge to Last Frame Position Script (SHIFT+NUM7), will copy the last frame search box position.
+Nudge Key and Key Smooth Up / Down will (SHIFT+NUM1/CTRL+SHIFT+NUM1) increase/decrease the Key and Key Smooth by two fold.
+
+
 #### Installation:
 Paste this script folder into you User script folder.
 
@@ -23,4 +27,7 @@ add these below on the end of the keybd14.ini file (these are SHIFT+ the usual m
    1 Numericpad2 mb Nudge a Lot Down Script
    1 Numericpad9 mb Nudge a Lot Tracker Size Up Script
    1 Numericpad3 mb Nudge a Lot Tracker Size Down Script   
+   1 Numericpad7 mb Nudge to Last Frame Position Script
+   1 Numericpad1 mb Nudge Key and Key Smooth Up Script
+   3 Numericpad1 mb Nudge Key and Key Smooth Down Script
 ```
