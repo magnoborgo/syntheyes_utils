@@ -4,7 +4,7 @@ Enable keyboard shortcuts to Nudge a lot. You can move your Tracker into 5 pixel
 You can also increase/decrease Tracker search area with bigger increments.
 If you want to use other increment sizes, edit "pixelnudge" variable on each script.
 
-Nudge to Last Frame Position Script (SHIFT+NUM7), will copy the last frame search box position.<br>
+Nudge to Prev / Next Frame Position Script (SHIFT+NUM7/CTRL+SHIFT+NUM7), will copy the last frame search box position.<br>
 Nudge Key and Key Smooth Up / Down will (SHIFT+NUM1/CTRL+SHIFT+NUM1) increase/decrease the Key and Key Smooth by two fold.
 
 

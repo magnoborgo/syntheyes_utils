@@ -1,0 +1,19 @@
+//SIZZLET mb Nudge to Next Frame Position
+//by Magno Borgo 2022
+
+cam = Scene.activeObj.cam
+shot = cam.shot
+if (frame < shot.actualLength-1) // lets not run before frame 0
+    frame+=1
+    Scene.SetFrame(frame)
+
+    tk = Scene.selected
+    if (typeof(tk) == "SynTrk")
+        previous_uv = tk.uv
+
+    frame-=1
+    Scene.SetFrame(frame)
+    tk.uv = previous_uv
+    tk.key = previous_uv
+    end
+end
