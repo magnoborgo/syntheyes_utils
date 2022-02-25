@@ -26,8 +26,9 @@ add these below on the end of the keybd14.ini file (these are SHIFT+ the usual m
    1 Numericpad8 mb Nudge a Lot Up Script
    1 Numericpad2 mb Nudge a Lot Down Script
    1 Numericpad9 mb Nudge a Lot Tracker Size Up Script
-   1 Numericpad3 mb Nudge a Lot Tracker Size Down Script   
-   1 Numericpad7 mb Nudge to Last Frame Position Script
+   1 Numericpad3 mb Nudge a Lot Tracker Size Down Script
+   1 Numericpad7 mb Nudge to Prev Frame Position Script
+   3 Numericpad7 mb Nudge to Next Frame Position Script  
    1 Numericpad1 mb Nudge Key and Key Smooth Up Script
    3 Numericpad1 mb Nudge Key and Key Smooth Down Script
 ```
