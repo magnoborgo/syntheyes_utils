@@ -7,6 +7,9 @@ If you want to use other increment sizes, edit "pixelnudge" variable on each scr
 Nudge to Prev / Next Frame Position Script (SHIFT+NUM7/CTRL+SHIFT+NUM7), will copy the last frame search box position.<br>
 Nudge Key and Key Smooth Up / Down will (SHIFT+NUM1/CTRL+SHIFT+NUM1) increase/decrease the Key and Key Smooth by two fold.
 
+[Demo video](http://www.youtube.com/watch?v=IZqyl27X7CA&feature=player_embedded)    
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=IZqyl27X7CA" target="_blank"><img src="http://img.youtube.com/vi/IZqyl27X7CA/mqdefault.jpg"
+alt="Click to Watch the video" width="240" height="135" border="10" /></a>
 
 #### Installation:
 Paste this script folder into you User script folder.
