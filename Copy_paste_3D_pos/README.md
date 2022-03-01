@@ -3,6 +3,9 @@
 With these scripts, you can copy 3D solved positions from Trackers into Seed and Lock of Trackers.
 Useful when you want to match cameras between shots and don't want to do Indirect solves (Regular solves with seed and lock)
 
+[Demo video](http://www.youtube.com/watch?v=8J9Ru6hnAUk&feature=player_embedded)    
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=8J9Ru6hnAUk" target="_blank"><img src="http://img.youtube.com/vi/8J9Ru6hnAUk/mqdefault.jpg"
+alt="Click to Watch the video" width="240" height="135" border="10" /></a>
 
 1. Select solved tracker
 2. Copy Solved Pos
