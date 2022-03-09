@@ -13,7 +13,7 @@ if (typeof(msh) != "SynMesh")
 end
 
 
-dlg=NewDialog("bvfxeditpivot","bvfx Pivot Editor") 
+dlg=NewDialog("bvfxeditpivot","mb Align Pivot") 
 dlg.Choice("pivX", "X axis", "0")
 dlg.AddChoice("pivX", "0", "X-")
 dlg.AddChoice("pivX", "1", "X Center")
