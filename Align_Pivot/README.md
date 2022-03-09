@@ -1,6 +1,6 @@
 ## mb Align Pivot
 
-Manual pivot alignment by dragging is now a thing from the past
+Manual pivot alignment by dragging is now a thing from the past<br>
 With this Syntheyes Sizzle script you can put your mesh pivot point exactly where you want!
 
 [Demo video](http://www.youtube.com/watch?v=UcNmbZUEoXM&feature=player_embedded)    
