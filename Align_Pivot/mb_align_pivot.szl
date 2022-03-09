@@ -1,0 +1,186 @@
+//SIZZLET mb Align Pivot
+// by Magno Borgo 2022
+
+axisMode = 1 // Y UP 
+
+msh = Scene.editMesh
+if (typeof(msh) != "SynMesh")
+    msh = Scene.selected
+    if (typeof(msh) != "SynMesh")
+    Message("Select one mesh")
+    exit()
+    end
+end
+
+
+dlg=NewDialog("bvfxeditpivot","bvfx Pivot Editor") 
+dlg.Choice("pivX", "X axis", "0")
+dlg.AddChoice("pivX", "0", "X-")
+dlg.AddChoice("pivX", "1", "X Center")
+dlg.AddChoice("pivX", "2", "X+")
+dlg.Choice("pivY", "Y axis", "0")
+dlg.AddChoice("pivY", "0", "Y-")
+dlg.AddChoice("pivY", "1", "Y Center")
+dlg.AddChoice("pivY", "2", "Y+")
+dlg.Choice("pivZ", "Z axis", "0")
+dlg.AddChoice("pivZ", "0", "Z-")
+dlg.AddChoice("pivZ", "1", "Z Center")
+dlg.AddChoice("pivZ", "2", "Z+")
+dlg.Button("AlignPivotXYZ","", "Align")
+
+dlg.Float("Xpivt", "WorldX", -1.0e6, 0, 1.0e6)
+dlg.Float("Ypivt", "WorldY", -1.0e6, 0, 1.0e6)
+dlg.Float("Zpivt", "WorldZ", -1.0e6, 0, 1.0e6)
+dlg.Button("AlignPivotW","Move to world ZYX", "Move to XYZ")
+dlg.Button("Copy3Dpos","Copy 3D position", "Copy 3D")
+dlg.Detach()
+
+
+function AlignPivotXYZ()
+    AlignPivot("xyz")
+end
+
+
+function AlignPivotW()
+    AlignPivot("world")
+end
+
+
+function AlignPivot(mode)
+    msh = Scene.editMesh
+    if (typeof(msh) != "SynMesh")
+        msh = Scene.selected
+        if (typeof(msh) != "SynMesh")
+        Message("Select one mesh")
+        exit()
+        end
+    end
+
+    vmin = RealMeshBB("min")
+    vmax = RealMeshBB("max") 
+    center = (vmin + vmax) / 2
+
+    srcscl = msh.svec
+    srcxf = msh.wtrans
+
+    vminwpos = (vmin % srcscl) * srcxf      // to world
+    vmaxwpos = (vmax % srcscl) * srcxf      // to world
+    centerpos = (center % srcscl) * srcxf      // to world
+    
+   
+    pivot = center
+    if (mode == "xyz")
+        if (dlg.pivX == 0)
+            pivot.x = vminwpos.x
+        elseif (dlg.pivX == 1)
+            pivot.x = centerpos.x
+        else
+            pivot.x = vmaxwpos.x
+        end
+
+        if (dlg.pivY == 0)
+            pivot.y = vminwpos.y
+        elseif (dlg.pivY == 1)
+            pivot.y = centerpos.y
+        else
+            pivot.y = vmaxwpos.y
+        end
+
+        if (dlg.pivZ == 0)
+            pivot.z = vminwpos.z
+        elseif (dlg.pivZ == 1)
+            pivot.z = centerpos.z
+        else
+            pivot.z = vmaxwpos.z
+        end
+    end
+
+    if (mode == "world")
+        pivot =  Vector(dlg.Xpivt, dlg.Ypivt, dlg.Zpivt)
+    end
+  
+    wpos = pivot
+    iscl = Vector(   (srcscl.x ? 1.0/srcscl.x : 1.0),
+            (srcscl.y ? 1.0/srcscl.y : 1.0),
+            (srcscl.z ? 1.0/srcscl.z : 1.0))
+    isrcxf = srcxf.inv
+    pivot = (pivot * isrcxf) % iscl
+
+    msh.trans.rowP = wpos
+    for (v = 1; v <= #msh.vtx; v++)
+    msh.vtx[v] = msh.vtx[v] - pivot 
+    end
+    msh.vtx.Update()
+end
+
+function CreateTK(wpos,name)
+    ob = Scene.activeObj
+    tk = new ob.trk
+    tk.nm = name
+    tk.lockPos = wpos
+    tk.lockCoord = wpos
+    tk.isSolved = 1
+    tk.isSeed = 1
+    tk.isDone = 1
+
+end
+
+
+function Copy3Dpos()
+    obj = Scene.selected
+    if (typeof(obj) == "SynMesh")
+        dlg.Xpivt = obj.x
+        dlg.Ypivt = obj.y
+        dlg.Zpivt = obj.z
+    elseif (typeof(obj) == "SynObj")
+        dlg.Xpivt = obj.x
+        dlg.Ypivt = obj.y
+        dlg.Zpivt = obj.z
+    elseif (typeof(obj) == "SynExtraPt")
+        dlg.Xpivt = obj.x
+        dlg.Ypivt = obj.y
+        dlg.Zpivt = obj.z
+    elseif (typeof(obj) == "SynTrk")
+        dlg.Xpivt = obj.wx
+        dlg.Ypivt = obj.wy
+        dlg.Zpivt = obj.wz
+    end
+end
+
+function RealMeshBB(mode)
+    // iterates all mesh vertex in world pos to find min or max positions
+    msh = Scene.editMesh
+    if (typeof(msh) != "SynMesh")
+        msh = Scene.selected
+        if (typeof(msh) != "SynMesh")
+        Message("Select one mesh")
+        exit()
+        end
+    end
+
+    srcxf = msh.wtrans
+    srcscl = msh.svec
+    wpos = (msh.vtx[1] % srcscl) * srcxf  
+    maxx = wpos.x 
+    maxy = wpos.y
+    maxz = wpos.z
+    for (v = 2; v <= #msh.vtx; v++)
+        vpos = (msh.vtx[v] % srcscl) * srcxf
+        if (mode == "min")
+            maxx = fmin(vpos.x,maxx)
+            maxy = fmin(vpos.y,maxy)
+            maxz = fmin(vpos.z,maxz)
+            
+        else
+            maxx = fmax(vpos.x,maxx)
+            maxy = fmax(vpos.y,maxy)
+            maxz = fmax(vpos.z,maxz)
+        end
+    end
+    iscl = Vector(   (srcscl.x ? 1.0/srcscl.x : 1.0),
+            (srcscl.y ? 1.0/srcscl.y : 1.0),
+            (srcscl.z ? 1.0/srcscl.z : 1.0))
+    isrcxf = srcxf.inv
+    max = (Vector(maxx,maxy,maxz) * isrcxf) % iscl
+    return max
+end
