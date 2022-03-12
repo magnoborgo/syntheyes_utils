@@ -2,6 +2,15 @@
 
 Syntheyes Utils is a collection of scripts (sizzle/python) that I developed to improve my day to day matchmoving using Syntheyes.
 
+
+### Brief descriptions
+
+Align Pivot - align mesh pivot into ZYX axis or move it to any 3D world coordinates<br> 
+Copy_paste_3D_POS - copy a solved 3D tracker position, paste into Seed and Lock to another tracker<br>
+Nudge - keyboard shortcuts to nudge trackers, increase/decrease search area, increase/decrease key/key smooth, copy previous/next frame positions.<br>
+Python - mb_zoom_active_tracker_host - Zoom quad views to camera or any 3d selected object(s)/tracker(s)<br>
+
+
 #### Installation:
 Most of the time... just drop scripts inside your user script folder. (Syntheyes Menu > Script > User script folder)
 
