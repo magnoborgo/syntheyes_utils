@@ -1,0 +1,40 @@
+//SIZZLET mb Change tracker color
+//by Magno Borgo 2022
+
+Scene.useAltColor = 1
+
+red = 9983
+yellow = 64510
+magenta = 16728319
+green = 1895946
+cyan = 16776192
+orange = 37631
+blue = 16724484
+brown = 4290986
+black = 0
+white = 16777214
+
+objs = Scene.activeObj
+for (tk in objs.trk)
+    if (typeof(tk) == "SynTrk" && tk.isSel)
+        if (tk.color == green)
+            tk.color = yellow
+        elseif (tk.color == yellow)
+            tk.color = magenta
+        elseif (tk.color == magenta)
+            tk.color = cyan
+        elseif (tk.color == cyan)
+            tk.color = orange
+        elseif (tk.color == orange)
+            tk.color = blue
+        elseif (tk.color == blue)
+            tk.color = brown
+        elseif (tk.color == brown)
+            tk.color = black
+        elseif (tk.color == black)
+            tk.color = white     
+        else
+            tk.color = green
+        end
+    end
+end
