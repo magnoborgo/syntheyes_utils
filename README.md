@@ -9,7 +9,7 @@ Syntheyes Utils is a collection of scripts (sizzle/python) that I developed to i
 **Copy_paste_3D_POS** - copy a solved 3D tracker position, paste into Seed and Lock to another tracker<br>
 **Nudge** - keyboard shortcuts to nudge trackers, increase/decrease search area, increase/decrease key/key smooth, copy previous/next frame positions.<br>
 **Python - mb_zoom_active_tracker_host** - Zoom quad views to camera path or any 3d selected object(s)/tracker(s)<br>
-** change tracker color ** - change tracker colors with a shortcut
+**change tracker color** - change tracker colors with a shortcut
 
 #### Installation:
 Most of the time... just drop scripts inside your user script folder. (Syntheyes Menu > Script > User script folder)
