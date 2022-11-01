@@ -1,6 +1,6 @@
 ## Show Hide meshes
 
-Enable keyboard shortcuts to show/hide meshes
+Enable keyboard shortcuts to show/hide *selected* meshes
 
 
 #### Installation:
