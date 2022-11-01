@@ -10,7 +10,7 @@ Syntheyes Utils is a collection of scripts (sizzle/python) that I developed to i
 **Nudge** - keyboard shortcuts to nudge trackers, increase/decrease search area, increase/decrease key/key smooth, copy previous/next frame positions.<br>
 **Python - mb_zoom_active_tracker_host** - Zoom quad views to camera path or any 3d selected object(s)/tracker(s)<br>
 **change tracker color** - change tracker colors with a shortcut
-
+** hide meshes ** - creates a keyboard shortcut to show/hide selected meshes
 #### Installation:
 Most of the time... just drop scripts inside your user script folder. (Syntheyes Menu > Script > User script folder)
 
