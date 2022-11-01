@@ -1,0 +1,14 @@
+//SIZZLET mb Hide Mesh
+// by Magno Borgo 2022
+// this allows you to create a keyboard shortcut to quickly hide/show meshes
+
+
+for (msh in Mesh)
+    if(msh.isSelected)
+        if (msh.show == 1)
+            msh.show = 0
+        else
+            msh.show = 1
+        end
+    end
+end
