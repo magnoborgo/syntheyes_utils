@@ -1,0 +1,39 @@
+//SIZZLET mb Tracker Distance
+// by Magno Borgo 2024
+axisMode = 1 // Y UP 
+objs = Scene.activeObj
+
+count = 0
+x1 = 0
+x2 = 0
+y1= 0
+y2= 0
+z1= 0
+z2 = 0
+
+for (tk in objs.trk)
+    if (tk.isSel)
+
+        if (count == 0)
+            x1 = tk.wx
+            y1 = tk.wy
+            z1 = tk.wz
+            // Message("01" printf(tk.wvec))
+        end
+
+        if (count == 1)
+            x2 = tk.wx
+            y2 = tk.wy
+            z2 = tk.wz
+            // Message("02" printf(tk.wvec))
+        end
+    
+    count = count +1
+    end
+end
+
+if (count ==2)
+    dist = sqrt(((x1-x2)**2)+((y1-y2)**2)+((z1-z2)**2))
+end
+
+Message(printf(dist))
