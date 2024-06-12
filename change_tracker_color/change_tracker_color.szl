@@ -1,5 +1,5 @@
 //SIZZLET mb Change tracker color
-//by Magno Borgo 2022
+//by Magno Borgo 2024
 
 Scene.useAltColor = 1
 
@@ -14,27 +14,44 @@ brown = 4290986
 black = 0
 white = 16777214
 
-objs = Scene.activeObj
-for (tk in objs.trk)
-    if (typeof(tk) == "SynTrk" && tk.isSel)
-        if (tk.color == green)
-            tk.color = yellow
-        elseif (tk.color == yellow)
-            tk.color = magenta
-        elseif (tk.color == magenta)
-            tk.color = cyan
-        elseif (tk.color == cyan)
-            tk.color = orange
-        elseif (tk.color == orange)
-            tk.color = blue
-        elseif (tk.color == blue)
-            tk.color = brown
-        elseif (tk.color == brown)
-            tk.color = black
-        elseif (tk.color == black)
-            tk.color = white     
-        else
-            tk.color = green
-        end
+
+for (msh in Mesh)
+    if (msh.isSelected)
+        changeColor(msh)
     end
 end
+for (tk in Trk)
+    if (tk.isSel)
+        changeColor(tk)    
+    end
+end
+for (msh in Obj)
+    if (msh.isSelected)
+        changeColor(msh)    
+    end
+end
+
+
+function changeColor(tk)
+    if (tk.color == green)
+        tk.color = yellow
+    elseif (tk.color == yellow)
+        tk.color = magenta
+    elseif (tk.color == magenta)
+        tk.color = cyan
+    elseif (tk.color == cyan)
+        tk.color = orange
+    elseif (tk.color == orange)
+        tk.color = blue
+    elseif (tk.color == blue)
+        tk.color = brown
+    elseif (tk.color == brown)
+        tk.color = black
+    elseif (tk.color == black)
+        tk.color = white     
+    else
+        tk.color = green
+    end
+end
+
+
