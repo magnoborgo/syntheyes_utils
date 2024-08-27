@@ -1,0 +1,49 @@
+//SIZZLET mb Nudge Position Prediction
+//by Magno Borgo Aug 2024
+//takes previous 2 keyframes positions and predict the next one
+//based on acceleration & previous positions
+//script doesn't run if there's less than 2 frames to calculate on the begin/end of shot
+
+
+host = Scene.activeObj
+shot = host.shot
+start = shot.start
+stop = shot.stop
+
+if (frame-2 >= start && frame+2 <= stop) // lets not run before frame 0 or after shot end
+    tk = Scene.selected
+    if (typeof(tk) == "SynTrk")
+        direction = -1 // tk.direction = 0 > forward // 1 = backward  
+        if (tk.direction == 1)
+            direction = 1
+        end
+        frame+=2 * direction
+        Scene.SetFrame(frame)
+
+        pt01 = tk.uv
+        frame+=1 * -direction
+        Scene.SetFrame(frame)
+        pt02 = tk.uv
+        frame+=1 * -direction
+        Scene.SetFrame(frame)
+        pt03 = tk.uv
+
+        // acceleration vector
+        ax = pt03.u -(2 * pt02.u) + pt01.u
+        ay = pt03.v -(2 * pt02.v) + pt01.v
+
+        v3x = (pt03.u-pt02.u) 
+        v3y = (pt03.v-pt02.v) 
+
+        v4x = v3x + ax
+        v4y = v3y + ay
+
+        frame+=1 * -direction
+        Scene.SetFrame(frame)
+
+        tk.isKeyed = 1
+        tk.key = pt03 + Point(v4x,v4y)
+        tk.uv = tk.key
+        tk.Run()
+    end
+end
