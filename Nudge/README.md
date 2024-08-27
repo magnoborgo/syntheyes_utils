@@ -6,6 +6,7 @@ If you want to use other increment sizes, edit "pixelnudge" variable on each scr
 
 Nudge to Prev / Next Frame Position Script (SHIFT+NUM7/CTRL+SHIFT+NUM7), will copy the last frame search box position.<br>
 Nudge Key and Key Smooth Up / Down will (SHIFT+NUM1/CTRL+SHIFT+NUM1) increase/decrease the Key and Key Smooth by two fold.
+Nugde Prediction (SHIFT+NUM5) Predicts next frame position based on the 2 previous frames
 
 [Demo video](http://www.youtube.com/watch?v=IZqyl27X7CA&feature=player_embedded)    
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=IZqyl27X7CA" target="_blank"><img src="http://img.youtube.com/vi/IZqyl27X7CA/mqdefault.jpg"
@@ -34,4 +35,5 @@ add these below on the end of the keybd14.ini file (these are SHIFT+ the usual m
    3 Numericpad7 mb Nudge to Next Frame Position Script  
    1 Numericpad1 mb Nudge Key and Key Smooth Up Script
    3 Numericpad1 mb Nudge Key and Key Smooth Down Script
+   1 Numericpad5 mb Nudge Position Prediction Script
 ```
