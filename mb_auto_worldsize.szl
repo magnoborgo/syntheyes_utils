@@ -1,0 +1,20 @@
+//SIZZLET mb Auto World Size
+//by Magno Borgo 2024
+
+// checks all trackers for the 3D positions and set the world size automagically 
+
+
+min_world_size = 1000
+cam = Scene.activeObj.cam
+
+for (tk in Trk)
+    min_world_size = fmax(min_world_size,abs(tk.wx))
+    min_world_size = fmax(min_world_size,abs(tk.wy))
+    min_world_size = fmax(min_world_size,abs(tk.wz))
+end
+
+
+// Message(world_size)
+
+cam.worldSize = floor(min_world_size + (min_world_size/100)) //lets add 1% to the result for safety margin
+
