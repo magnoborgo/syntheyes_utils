@@ -44,6 +44,10 @@ if (frame-2 >= start && frame+2 <= stop) // lets not run before frame 0 or after
         tk.isKeyed = 1
         tk.key = pt03 + Point(v4x,v4y)
         tk.uv = tk.key
+        if (tk.isEnabled == 0)
+            tk.isEnabled = 1
+        end
+        
         tk.Run()
     end
 end
